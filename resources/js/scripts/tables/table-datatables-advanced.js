@@ -40,7 +40,7 @@ $(function () {
   // Datepicker for advanced filter
   var separator = ' - ',
     rangePickr = $('.flatpickr-range'),
-    dateFormat = 'MM/DD/YYYY';
+    dateFormat = 'DD/MM/YYYY';
   var options = {
     autoUpdateInput: false,
     autoApply: true,
@@ -55,7 +55,7 @@ $(function () {
   if (rangePickr.length) {
     rangePickr.flatpickr({
       mode: 'range',
-      dateFormat: 'm/d/Y',
+      dateFormat: 'd/m/Y',
       onClose: function (selectedDates, dateStr, instance) {
         var startDate = '',
           endDate = new Date();
@@ -100,7 +100,7 @@ $(function () {
   var normalizeDate = function (dateString) {
     var date = new Date(dateString);
     var normalized =
-      date.getFullYear() + '' + ('0' + (date.getMonth() + 1)).slice(-2) + '' + ('0' + date.getDate()).slice(-2);
+    ('0' + date.getDate()).slice(-2)+ '' + ('0' + (date.getMonth() + 1)).slice(-2) + '' + date.getFullYear() ;
     return normalized;
   };
   // Advanced Search Functions Ends
@@ -113,6 +113,7 @@ $(function () {
       processing: true,
       dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
       ajax: assetPath + 'data/ajax.php',
+      responsive: true,
       language: {
         paginate: {
           // remove previous & next text from pagination
@@ -152,6 +153,7 @@ $(function () {
       ],
       dom: '<"d-flex justify-content-between align-items-center mx-0 row"<"col-sm-12 col-md-6"l><"col-sm-12 col-md-6"f>>t<"d-flex justify-content-between mx-0 row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
       orderCellsTop: true,
+      
       language: {
         paginate: {
           // remove previous & next text from pagination

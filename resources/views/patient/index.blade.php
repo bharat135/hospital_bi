@@ -25,23 +25,27 @@
     <div class="card-header border-bottom bg-primary">
       <h4 class="card-title" style="color:whitesmoke">Patient search</h4>
     </div>
-    <div class="row p-2">
-      <div class="col-md-6">
-        <label class="form-label">Search by</label>
-        <select class="form-control form-select">
-            <option value="1">Name</option>
-            <option value="2">Mobile No</option>
-        </select>
+    <div class="card-body p-1">
+      <div class="row"> 
+        <div class="col-sm-6">
+          <label class="form-label">Search by</label>
+          <select class="form-control form-select">
+              <option value="1">Name</option>
+              <option value="2">Mobile No</option>
+          </select>
+        </div>
+        <div class="col-sm-6">
+          <label class="form-label">Search input</label>
+          <input type="text" name="" class="form-control">
+        </div> 
       </div>
-      <div class="col-md-6">
-        <label class="form-label">Search input</label>
-        <input type="text" name="" class="form-control">
-      </div> 
-    </div>
-    <div class="row p-2">
-      <div class="col-sm-12">
-        <button type="reset" class="btn btn-primary me-1">Submit</button>
-        <button type="reset" class="btn btn-outline-secondary">Reset</button>
+      <div class="demo-inline-spacing">
+        <div class="row">
+          <div class="col-sm-12">
+            <button type="reset" class="btn btn-primary me-1">Submit</button>
+            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,7 +69,7 @@
           <table class="datatables-ajax table table-responsive">
             <thead>
               <tr>
-                <th>Name</th>
+                <th>Patient Name</th>
                 <th>Added date</th>
                 <th>Added by</th>
                 <th>Wife no</th>
@@ -85,19 +89,6 @@
   </div>
 </section>
 
-
-
-<script>
-  function show_dates(value) {
-
-    if (value == 10) {
-      $('.custom_date_div').show();
-    }else{
-      $('.custom_date_div').hide();
-    }
-
-  }
-</script>
 <!-- Ajax Sourced Server-side -->
 {{--  --}}
 @endsection

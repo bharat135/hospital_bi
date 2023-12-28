@@ -20,7 +20,10 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\authorization\PermissionController;
 use App\Http\Controllers\authorization\RolesController;
+use App\Http\Controllers\Marketing\CampaignDetailController;
+use App\Http\Controllers\Marketing\MarketingSourceController;
 use App\Http\Controllers\Notify\NotificationController;
+use Laravel\Sanctum\Sanctum;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +99,18 @@ Route::group(['prefix' => 'patient', 'middleware' => ['auth']], function () {
     Route::get('index', [PatientController::class, 'index'])->middleware(['auth', 'can:patient_access'])->name('patient-index');
     Route::get('create', [PatientController::class, 'create'])->middleware(['auth', 'can:patient_create'])->name('patient-create');
     Route::get('details', [PatientController::class, 'details'])->middleware(['auth', 'can:patient_call_status'])->name('patient-details');
+});
+
+/* Route marketing */
+Route::group(['prefix' => 'marketing', 'middleware' => ['auth']], function () {
+    Route::get('/sources/index', [MarketingSourceController::class, 'index'])->middleware(['auth', 'can:marketing_sources_view'])->name('sources.index');
+    Route::get('/sources/tree', [MarketingSourceController::class, 'TreeView'])->middleware(['auth', 'can:marketing_sources_view'])->name('sources.tree');
+    Route::get('/sources/create', [MarketingSourceController::class, 'create'])->middleware(['auth', 'can:marketing_sources_create'])->name('sources.create');
+    Route::post('/sources/store', [MarketingSourceController::class, 'store'])->middleware(['auth', 'can:marketing_sources_create'])->name('sources.store');
+    Route::get('/sources/{id}/edit', [MarketingSourceController::class, 'edit'])->middleware(['auth', 'can:marketing_sources_update'])->name('sources.edit');
+    Route::put('/sources', [MarketingSourceController::class, 'update'])->middleware(['auth', 'can:marketing_sources_update'])->name('sources.update');
+    Route::delete('/sources/{id}', [MarketingSourceController::class, 'destroy'])->middleware(['auth', 'can:marketing_sources_delete'])->name('sources.destroy');
+    Route::get('/sources/parentbranches', [MarketingSourceController::class, 'getParentBranches'])->middleware(['auth', 'can:marketing_sources_view'])->name('sources.parentbranches');
 });
 
 Route::group(['prefix' => 'schedule', 'middleware' => ['auth']], function () {

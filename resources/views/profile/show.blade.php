@@ -44,7 +44,7 @@ $breadcrumbs = [['link' => 'home', 'name' => 'Home'], ['link' => 'javascript:voi
                 <select data-placeholder="Select a theme option" class="select2-icons form-select" id="theme" name="theme">
                     <option value="dark-layout" data-icon="moon">Dark Mode</option>
                     <option value="light-layout" data-icon="sun">Light Mode</option>
-                    <option value="semi-dark-layout" data-icon="moon">Semi Dark Mode</option>                 
+                    <option value="semi-dark-layout" data-icon="sunset">Semi Dark Mode</option>                 
                 </select>
               </div>
             </div>
@@ -52,14 +52,10 @@ $breadcrumbs = [['link' => 'home', 'name' => 'Home'], ['link' => 'javascript:voi
         </div>
       </div>
     </div>
-  
- 
-  </section>
-  
+  </section> 
   @if (Laravel\Jetstream\Jetstream::hasAccountDeletionFeatures())
     @livewire('profile.delete-user-form')
   @endif
-
 @endsection
 @section('vendor-script')
   <!-- vendor files -->
@@ -74,13 +70,11 @@ $breadcrumbs = [['link' => 'home', 'name' => 'Home'], ['link' => 'javascript:voi
   <script src="{{ asset(mix('vendors/js/extensions/sweetalert2.all.min.js')) }}"></script>
   <script src="{{ asset(mix('vendors/js/extensions/polyfill.min.js')) }}"></script>
 @endsection
-@section('page-script')
-  
+@section('page-script')  
 <script>
 $(document).ready(function() {
     // Variable to store the current theme
     var currentTheme;
-
     // Fetch the current theme on page load
     $.ajax({
         url: '/get-current-theme',
@@ -94,7 +88,6 @@ $(document).ready(function() {
             console.error('Error fetching current theme');
         }
     });
-
     // Handle theme change
     $('#theme').on('change', function(e) {
         e.preventDefault();

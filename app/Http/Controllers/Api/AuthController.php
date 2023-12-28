@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use App\Http\Resources\UserResource;
 
 
 
@@ -83,6 +85,7 @@ class AuthController extends Controller
                 ], 401);
             }
 
+            
             if (!Auth::attempt(['email' => $request->email, 'password' => $request->password]) &&
                 !Auth::attempt(['username' => $request->email, 'password' => $request->password])) {
                 return response()->json([
@@ -100,13 +103,18 @@ class AuthController extends Controller
             $user = User::where('email', $request->email)
             ->orWhere('username', $request->email)
             ->first();
-
+            $this->logoutOtherDevices($user, $request->password);
             $intendedUrl = session()->pull('url.intended', '/');
+            $token = $user->createToken('app-token')->plainTextToken;
+
+            $user->token = $token;
+            $response = ['data' => new UserResource($user)];
 
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
-                'token' => $user->createToken("API TOKEN")->plainTextToken,
+                'token' => $token,
+                'response' => $response,
                 'intended_url' => $intendedUrl,
             ], 200);
 
@@ -142,6 +150,18 @@ class AuthController extends Controller
         }
 
         return response()->json(['message' => 'Invalid credentials'], 401);
+    }
+
+    protected function logoutOtherDevices($user, $password)
+    {
+        $user->forceFill([
+            'remember_token' => Str::random(60),
+        ])->save();
+
+        DB::table('sessions')
+            ->where('user_id', $user->id)
+            ->where('id', '!=', session()->getId())
+            ->delete();
     }
 
     

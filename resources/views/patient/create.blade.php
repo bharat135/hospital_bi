@@ -24,9 +24,10 @@
     <div class="card-header bg-primary">
       <h4 class="card-title" style="color:whitesmoke">Patient form</h4>
     </div>
-    <div class="container border p-2">
+
+    <div class="card-body p-1">
     <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
             <label for="center" class="form-label">Center</label>
             <select name="center" id="center" class="form-select">
                 <option>Nashik</option>
@@ -35,8 +36,7 @@
                 <option>Panvel</option>
             </select>
         </div>
-
-        <div class="col">
+        <div class="col-sm-6">
             <label for="pt_type" class="form-label">Patient type <span style="color:red">*</span></label>
             <select name="pt_type" id="pt_type" class="form-select">
                 <option>Male</option>
@@ -44,9 +44,8 @@
             </select>
         </div>
     </div>
-
     <div class="row">
-        <div class="col">
+        <div class="col-sm-6">
             <label for="primary_source" class="form-label">Primary Source <span style="color:red">*</span></label>
             <select name="primary_source" id="primary_source" class="form-select">
                 <option>DM</option>
@@ -54,8 +53,7 @@
                 <option>Newspaper</option>
             </select>
         </div>
-
-        <div class="col">
+        <div class="col-sm-6">
             <label for="secondary_source" class="form-label">Secondary Source <span style="color:red">*</span></label>
             <select name="secondary_source" id="secondary_source" class="form-select">
                 <option>Facebook</option>
@@ -74,8 +72,8 @@
           <div class="card-header bg-primary">
             <h4 class="card-title" style="color:whitesmoke">Wife info</h4>
           </div>
-          <div class="container border p-2">
-
+          <div class="card-body p-1">
+            <div class="col-sm-12">
               <label for="wife_fname" class="form-label">First Name</label>
               <input type="text" name="wife_fname" id="wife_fname" value="" placeholder="First Name" class="form-control">
 
@@ -87,7 +85,7 @@
 
               <label for="wife_contact" class="form-label">Contact number</label>
               <input type="number" name="wife_contact" id="wife_contact" value="" placeholder="Contact" class="form-control">
-        
+            </div>
           </div>
         </div>
     </div>
@@ -98,7 +96,8 @@
             <div class="card-header bg-primary">
               <h4 class="card-title" style="color:whitesmoke">Husband info</h4>
             </div>
-            <div class="container border p-2">
+            <div class="card-body p-1">
+              <div class="col-sm-12">
                   <label for="husband_fname" class="form-label">First Name</label>
                   <input type="text" name="husband_fname" id="husband_fname" value="" placeholder="First Name" class="form-control">
 
@@ -113,11 +112,12 @@
               </div>
             </div>
           </div>
+        </div>
           {{-- Husband info end --}}
     </div>
      <div class="col-md-12 col-12">
       <div class="card">
-        <div class="container border p-2">
+        <div class="card-body p-1">
           <div class="row">            
             <div class="col-md-3 col-12">
               <label for="marriage_since" class="form-label">Marriage Since (In Years)</label>
@@ -142,12 +142,12 @@
      {{-- Quetions with radio button start --}}
      <div class="col-md-12 col-12">
       <div class="card">
-        <div class="container border p-2">
+        <div class="card-body p-1">
           <div class="row">            
             <div class="col-md-6 col-12">
               <h5>1. Have you visited any hospital/doctors previously?</h5>
               <div class="demo-inline-spacing">
-                <div class="form-check form-check-inline">
+                <div class="form-check">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="option1" />
                     <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -159,11 +159,10 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-12">
-              
-                <h5>2. Have you ever gone through IVF or IUI previously.</h5>
+            <div class="col-md-6 col-12">              
+              <h5>2. Have you ever gone through IVF or IUI previously.</h5>
               <div class="demo-inline-spacing">
-                <div class="form-check form-check-inline">
+                <div class="form-check">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio3" value="option1" />
                     <label class="form-check-label" for="inlineRadio3">Yes</label>
@@ -183,7 +182,7 @@
                 <h5>3. Is any Male Fertility Issue addressed.</h5>
              
               <div class="demo-inline-spacing">
-                <div class="form-check form-check-inline">
+                <div class="form-check">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio5" value="option1" />
                     <label class="form-check-label" for="inlineRadio5">Yes</label>
@@ -198,7 +197,7 @@
             <div class="col-md-6 col-12">
               <h5>4. Is any Female Fertility Issue addressed.</h5>
               <div class="demo-inline-spacing">
-                <div class="form-check form-check-inline">
+                <div class="form-check">
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio7" value="option1" />
                     <label class="form-check-label" for="inlineRadio7">Yes</label>
@@ -231,7 +230,7 @@
         <div class="card-header bg-primary">
           <h4 class="card-title" style="color:whitesmoke">Additional Information</h4>
         </div>
-        <div class="container border p-2">
+        <div class="card-body p-1">
           <div class="row">
            
         <div class="col">

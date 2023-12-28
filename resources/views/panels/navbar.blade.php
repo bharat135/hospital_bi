@@ -191,74 +191,59 @@
         <span class="badge rounded-pill bg-danger badge-up">{{ auth()->user()->unreadNotifications->count() }}</span>
         @endif
       </a>
-      @if(auth()->user()->unreadNotifications->count() > 0)
       <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
         <li class="dropdown-menu-header">
           <div class="dropdown-header d-flex">
             <h4 class="notification-title mb-0 me-auto">Notifications</h4>
              @if (auth()->user()->unreadNotifications)
-              <a href="#" class="btn btn-primary btn-sm" id="markAsReadAllBtn">Mark All as Read</a>
+              {{-- <a href="#" class="btn btn-primary btn-sm" id="markAsReadAllBtn">Mark All as Read</a> --}}
              @endif    
           </div>
         </li>
-        
         <li class="scrollable-container media-list">
           <div id="notificationlist">
-            @foreach (auth()->user()->unreadNotifications as $notification)
-            <a class="d-flex" href="#" >
-                <div class="list-item d-flex align-items-start">
-                    <div class="me-1">
-                        <div class="avatar bg-light-{{ $notification->data['colour'] }}">
-                            <div class="avatar-content">
-                                <i class="avatar-icon" data-feather="{{ $notification->data['icon'] }}"></i>
+            @if(auth()->user()->unreadNotifications->count() > 0)
+              @foreach (auth()->user()->unreadNotifications as $notification)
+                <a class="d-flex" href="#" >
+                    <div class="list-item d-flex align-items-start">
+                        <div class="me-1">
+                            <div class="avatar bg-light-{{ $notification->data['colour'] }}">
+                                <div class="avatar-content">
+                                    <i class="avatar-icon" data-feather="{{ $notification->data['icon'] }}"></i>
+                                </div>
                             </div>
                         </div>
+                        <div class="list-item-body flex-grow-1">
+                            <p class="media-heading">
+                                <span class="fw-bolder">{{ $notification->data['title'] }}</span>&nbsp;
+                            </p>
+                            <small class="notification-text">{{ $notification->data['description'] }}</small><br>
+                            <small class="notification-text" style="color:grey">
+                                <span style="vertical-align: middle; font-size: 1.2em;">&middot; </span>
+                                {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
+                            </small>
+                        </div>
+                        <button type="button" class="btn-close notification-item" aria-label="Close" data-notification-id="{{ $notification->id }}"></button>
                     </div>
-                    <div class="list-item-body flex-grow-1">
-                        <p class="media-heading">
-                            <span class="fw-bolder">{{ $notification->data['title'] }}</span>&nbsp;
-                        </p>
-                        <small class="notification-text">{{ $notification->data['description'] }}</small><br>
-                        <small class="notification-text" style="color:grey">
-                            <span style="vertical-align: middle; font-size: 1.2em;">&middot; </span>
-                            {{ \Carbon\Carbon::parse($notification->created_at)->diffForHumans() }}
-                        </small>
-                    </div>
-                    <button type="button" class="btn-close notification-item" aria-label="Close" data-notification-id="{{ $notification->id }}"></button>
+                </a>
+              @endforeach
+            @else
+              <a class="d-flex" href="javascript:void(0)">
+                <div class="list-item d-flex align-items-start">
+                  <p class="media-heading"><span style="color:grey">No active notification</span>&nbsp;</p>
                 </div>
-            </a>
-        @endforeach
+              </a>
+            @endif
           </div> 
         </li>
         <li class="dropdown-menu-footer">
-          <a class="btn btn-primary w-100" href="javascript:void(0)">Read all notifications</a>
+          <a class="btn btn-primary w-100" href="javascript:void(0)">See all notifications</a>
         </li>
       </ul>
-      @else
-      <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
-        <li class="dropdown-menu-header">
-          <div class="dropdown-header d-flex">
-            <h4 class="notification-title mb-0 me-auto">Notifications</h4>
-          </div>
-        </li>
-        <li class="scrollable-container media-list">
-          <a class="d-flex" href="javascript:void(0)">
-            <div class="list-item d-flex align-items-start">
-              <p class="media-heading"><span style="color:grey">No active notification</span>&nbsp;</p>
-            </div>
-          </a>
-        </li>
-        <li class="dropdown-menu-footer">
-          <a class="btn btn-primary w-100" href="javascript:void(0)">Read all notifications</a>
-        </li>
-      </ul>
-      @endif
-      
-      
     </li>
   </div>
     {{-- /Notice Board --}}
-  @endcan
+@endcan
     {{-- User Profile. --}}
     <li class="nav-item dropdown dropdown-user">
       <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);"
@@ -267,6 +252,7 @@
           <span class="user-name fw-bolder">
             @if (Auth::check())
               {{ Auth::user()->name }}
+              {{-- {{ Auth::user()->tokens  }} --}}
             @else
               User
             @endif

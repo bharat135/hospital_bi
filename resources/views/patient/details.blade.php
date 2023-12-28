@@ -1,5 +1,3 @@
-
-
 @extends('layouts/contentLayoutMaster')
 
 @section('title', 'Calling window')
@@ -17,75 +15,76 @@
 @endsection
 
 @section('content')
-<div class="container p-2">
+<div class="card-body">
   <div class="row border p-2">
     <div class="col-md-4">
       <div class="card">
         <div class="card-header bg-primary">
           <h4 class="card-title" style="color:whitesmoke">Patient information</h4>
         </div>
-        <ul class="list-group">
-          <li class="list-group-item">
-            <label>
-              <strong>Marketing campaign: </strong>
-            </label>
-            <br>
-            <label class="pull-right"> 
-              Digital Marketing - Facebook-Thane
-            </label>
-          </li>
+        <div class="card-body p-1">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <span>
+                <b>Marketing campaign: </b>
+              </span>
+              <br>
+              <span> 
+                Digital Marketing - Facebook-Thane
+              </span>
+            </li>
 
-          <li class="list-group-item">
-            <label>
-              <strong>Name: </strong>
-            </label>
-            <br>
-            <label class="pull-right"> 
-              ABHAY SHAH
-            </label>
-          </li>
+            <li class="list-group-item">
+              <span>
+                <strong>Name: </strong>
+              </span>
+              <br>
+              <span> 
+                ABHAY SHAH
+              </span>
+            </li>
 
-          <li class="list-group-item">
-            <label>
-              <strong>Wife's Contact No: </strong>
-            </label>
-            <br>
-            <label class="pull-right"> 
-              9999999999
-            </label>
-          </li>
+            <li class="list-group-item">
+              <span>
+                <strong>Wife's Contact No: </strong>
+              </span>
+              <br>
+              <span> 
+                9999999999
+              </span>
+            </li>
 
-          <li class="list-group-item">
-            <label>
-              <strong>Husband's Contact No: </strong>
-            </label>
-            <br>
-            <label class="pull-right"> 
-              8888888888
-            </label>
-          </li>
+            <li class="list-group-item">
+              <span>
+                <strong>Husband's Contact No: </strong>
+              </span>
+              <br>
+              <span> 
+                8888888888
+              </span>
+            </li>
 
-          <li class="list-group-item">
-            <label>
-              <strong>Email-id: </strong>
-            </label>
-            <br>
-            <label class="pull-right"> 
-              mailto:dev.khose.pratik@gmail.com
-            </label>
-          </li>
+            <li class="list-group-item">
+              <label>
+                <strong>Email-id: </strong>
+              </label>
+              <br>
+              <label> 
+                mailto:dev.khose.pratik@gmail.com
+              </label>
+            </li>
 
-          <li class="list-group-item">
-            <label>
-              <strong>Marriage duration: </strong>
-            </label>
-            <br>
-            <label class="pull-right"> 
-              5 Years
-            </label>
-          </li>
-
-        </ul>
+            <li class="list-group-item">
+              <label>
+                <strong>Marriage duration: </strong>
+              </label>
+              <br>
+              <label> 
+                5 Years
+              </label>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -95,7 +94,7 @@
           <div class="card-header bg-primary">
             <h4 class="card-title" style="color:whitesmoke">Call status</h4>
           </div>
-          <div class="container border p-2">
+          <div class="card-body p-1">
             <div class="row">
               <div class="col">
                 <label>Call status</label>
@@ -158,19 +157,18 @@
       <div class="call_status">
           <div class="card">
             <div class="card-header bg-primary">
-              <h4 class="card-title" style="color:whitesmoke">Call History</h4>
+              <h4 class="card-title" style="color:whitesmoke">Called History</h4>
             </div>
-            <div class="container border p-2">
+            <div class="card-body p-1">
               <div class="border p-1">
                 <div class="row">
-                  <div class="col-md-12">
-                    <span>Called on: 30-Nov-23 | 11:54:25 am</span>
-                  
+                  <div class="">
+                    <div class="col-md-12">
+                      <span>Called on: 30-Nov-23 | 11:54:25 am</span>                  
+                    </div>
+                
+                    <hr>
                   </div>
-                  <br />
-                  <br />
-                  <hr>
-                  
                   <div class="col-md-6">
                     <label><strong>Calling Status</strong></label>
                     <br>
@@ -206,12 +204,12 @@
               <br>
               <div class="border p-1">
                 <div class="row">
-                  <div class="col-md-12">
-                    <span>Called on: 30-Nov-23 | 11:54:25 am</span>
+                  <div class="">
+                    <div class="col-md-12">
+                      <span>Called on: 30-Nov-23 | 11:54:25 am</span>
+                    </div>
+                    <hr>
                   </div>
-                  <br />
-                  <br />
-                  <hr>
                   <div class="col-md-6">
                     <label><strong>Calling Status</strong></label>
                     <br>

@@ -88,8 +88,44 @@ $configData = Helper::applClasses();
           </a>
         </li>
       @endcan
+      @role('admin')
+      <!-- Calendar -->
+      <li class="nav-item has-sub">
+        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
+          <i data-feather="target"></i>
+        <span class="menu-title text-truncate">Campaign Management</span>
+       
+        </a>
+          <ul class="menu-content">
+            @can('marketing_sources_view')
+            <li class="nav-item {{ Route::currentRouteName() === 'sources.index' ? 'active' : '' }}" data-menu="sources">
+              <a href="/marketing/sources/index" class="d-flex align-items-center">
+                <i data-feather="circle"></i>
+                <span class="menu-title text-truncate">Marketing Sources</span>
+              </a>
+            </li>
+            @endcan
+            @can('marketing_sources_view')
+            <li class="nav-item {{ Route::currentRouteName() === 'sources.tree' ? 'active' : '' }}" data-menu="tree">
+              <a href="/marketing/sources/tree" class="d-flex align-items-center">
+                <i data-feather="circle"></i>
+                <span class="menu-title text-truncate">Marketing Sources Tree view</span>
+              </a>
+            </li>
+            @endcan
+            
+            @can('campaign_view')
+            <li class="nav-item {{ Route::currentRouteName() === 'campaign' ? 'active' : '' }}" data-menu="campaign">
+              <a href="/patient/create" class="d-flex align-items-center">
+                <i data-feather="circle"></i>
+                <span class="menu-title text-truncate">Campaigns</span>
+              </a>
+            </li>
+            @endcan          
+          </ul>
+        </li>
        <!-- User Management -->
-       @role('admin')
+   
        <li class="nav-item has-sub">
         <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
           <i data-feather="user"></i>

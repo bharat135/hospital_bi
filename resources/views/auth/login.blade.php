@@ -118,6 +118,7 @@
           data: $('#login-form').serialize(), 
           success: function(response) {
               const redirect = response.intended_url;  
+              document.cookie = 'authToken='+ response.token +'; path=/';
               window.location.href = redirect;
           },       
           error: function(xhr, status, error) {

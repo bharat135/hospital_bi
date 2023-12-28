@@ -87,7 +87,7 @@
               <input
                 type="text"
                 class="form-control flat-picker bg-transparent border-0 shadow-none"
-                placeholder="YYYY-MM-DD"
+                placeholder="DD-MM-YYYY"
               />
             </div>
           </div>
@@ -175,7 +175,7 @@
     <!--/ Medal Card -->
 
      <!-- Notice Board -->
-     <div class="col-lg-4 col-12">
+    <div class="col-lg-4 col-12">
       <div class="card card-user-timeline">
         <div class="card-header">
           <div class="d-flex align-items-center">
@@ -183,13 +183,13 @@
             <h4 class="card-title">Notice Board</h4>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body " style="height: 350px; overflow-y: auto;">
           <ul class="timeline ms-50">
             <li class="timeline-item">
               <span class="timeline-point timeline-point-danger timeline-point-indicator"></span>
               <div class="timeline-event">
                 <h6 style="color:red">Attention!</h6>
-                <p>Data Migration downtime between 13.00 - 13.30 <span style="font-size: 79%"> (17 March at 15:16)</span></p>
+                <p>The Pune OPD is scheduled for Sunday, 24 Dec 2023, from 10 AM to 4 PM.<span style="font-size: 79%"> (1 Day Ago)</span></p>
               </div>
             </li>
             <li class="timeline-item">
@@ -199,6 +199,20 @@
                 <p>Complete your target ontime! <span style="font-size: 79%"> (23 Dec at 16:00)</span></p>
               </div>
             </li>         
+            <li class="timeline-item">
+              <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+              <div class="timeline-event">
+                <h6 style="color:rgb(15, 150, 3)">Updated !</h6>
+                <p class="mb-0">New telecalling report has been updated checkout. <span style="font-size: 79%"> (09 Oct at 12:16)</span></p>
+              </div>
+            </li>
+            <li class="timeline-item">
+              <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
+              <div class="timeline-event">
+                <h6 style="color:rgb(15, 150, 3)">Updated !</h6>
+                <p class="mb-0">New telecalling report has been updated checkout. <span style="font-size: 79%"> (09 Oct at 12:16)</span></p>
+              </div>
+            </li>
             <li class="timeline-item">
               <span class="timeline-point timeline-point-success timeline-point-indicator"></span>
               <div class="timeline-event">
@@ -262,8 +276,8 @@
           <input
             type="text"
             class="form-control flat-picker bg-transparent border-0 shadow-none"
-            placeholder="YYYY-MM-DD" value=""
-    data-flatpickr='{"dateFormat": "Y-m-d", "defaultDate": "today", "inline": true}'
+            placeholder="DD-MM-YYYY" value=""
+    data-flatpickr='{"dateFormat": "d-m-Y", "defaultDate": "today", "inline": true}'
           />
         </div>      
       </div>
@@ -351,7 +365,7 @@
               <input
                 type="text"
                 class="form-control flat-picker bg-transparent border-0 shadow-none"
-                placeholder="YYYY-MM-DD"
+                placeholder="DD-MM-YYYY"
               />
             </div>
           
@@ -373,13 +387,8 @@
             </div>
             <div class="d-flex align-items-center">
               <i class="font-medium-2" data-feather="calendar"></i>
-              <input
-                type="text"
-                class="form-control flat-picker bg-transparent border-0 shadow-none"
-                placeholder="YYYY-MM-DD"
-              />
-            </div>
-          
+              <input type="text" class="form-control flat-picker bg-transparent border-0 shadow-none" placeholder="DD-MM-YYYY" />
+            </div>          
           </div>
           <div class="card-body">
             <canvas id="myChart" style="width:100%;height:370px"></canvas>
@@ -398,7 +407,7 @@
           <div>
             <h4 class="card-title">Visits</h4>
             <span class="card-subtitle text-muted">Centerwise visits</span>
-            <p class="card-text">Today</p>
+            <p class="card-text">2023</p>
           </div>
           <div class="dropdown chart-dropdown">
             <i data-feather="more-vertical" class="font-medium-3 cursor-pointer" data-bs-toggle="dropdown"></i>
@@ -1108,7 +1117,7 @@
 @endsection
 @section('page-script')
 <script>
-  var xValues = ["Leads", "Popup", "Incoming calls", "Interested", "Appointments", "Cancelled Appointments", "Visits", "Booked"];
+  var xValues = ["Leads", "Popup", "Incoming calls", "Interested", "Appointments", "Cancelled Appointments", "Visited", "Booked"];
   var yValues = [1130, 800, 330, 620, 300, 70, 210, 112];
   var barColors = ["#4e2e99", "#7fdb58", "#f27638", "#fc3838", "#4287f5", "#cc0231", "#f23876", "#f5d714"];
 

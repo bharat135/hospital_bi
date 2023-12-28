@@ -30,6 +30,7 @@
         <tr>
           <th></th>
           <th></th>
+          <th>Sr no</th>
           <th>Name</th>
           <th>Assigned To</th>
           <th>Created Date</th>

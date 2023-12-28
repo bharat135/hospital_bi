@@ -517,8 +517,7 @@ $.get('/authorization/permission/getpermissions', function (data) {
                 showSweetAlert('Updated!', response.message, function() {
                   $('#editRoleModal').modal('hide');
                   location.reload();
-                  });  
-                 
+                  });                   
               },
               error: function (error) {
                 showSweetAlertError('Error!', error.responseJSON.message, function() {
